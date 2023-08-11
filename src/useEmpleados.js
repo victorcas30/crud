@@ -14,7 +14,7 @@ const useEmpleados = () => {
     const [isLoading,setIsLoading] = useState(false);
     const [cambiosEmpleados, setCambiosEmpleados] = useState(false);
 
-    const saveEmpleado = (data,reset) => {
+    const saveEmpleado = (data,reset,onClose) => {
         const copyEmpleado = {...data};
         console.log(copyEmpleado)
         setEmpleado([copyEmpleado]);
@@ -28,9 +28,10 @@ const useEmpleados = () => {
             setGuardado(false);
         }, 5000);
         reset();
+        onClose();
     }
 
-     const editarEmpleadoModal = (data,reset,idEmpleado) =>{
+     const editarEmpleadoModal = (data,reset,idEmpleado,onClose) =>{
         const copyEmpleadoEdit = {...data};
         copyEmpleadoEdit.id = idEmpleado;
         setEmpleado([copyEmpleadoEdit]);
@@ -39,6 +40,7 @@ const useEmpleados = () => {
         });
         setCambiosEmpleados(true);
         setIsEdit(false);
+        onClose();
         setEditado(true);
         setTimeout(() => {
             setEditado(false);

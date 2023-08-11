@@ -12,8 +12,6 @@ const ModalEmpleado = ({ isOpen, onClose, empleadoModal }) => {
   const {saveEmpleado,isEdit,editarEmpleadoModal,setIsEdit} = data;
   const [idEmpleado, setIdEmpleado] = useState(0);
 
-
-
   useEffect(() => {
     if (isEdit && empleadoModal) {
       const {id, nombre, apellido, dui, fechanacimiento, iddepartamento } = empleadoModal;
@@ -40,7 +38,7 @@ const ModalEmpleado = ({ isOpen, onClose, empleadoModal }) => {
       <div className="modal-content">
       {isEdit ? <h3>Edit Empleado</h3> : <h3>Set Empleado</h3> }
         <div>
-        <form onSubmit={handleSubmit(isEdit ? data => editarEmpleadoModal(data,reset,idEmpleado) : data => saveEmpleado(data,reset))}>
+        <form onSubmit={handleSubmit(isEdit ? data => editarEmpleadoModal(data,reset,idEmpleado,onClose) : data => saveEmpleado(data,reset,onClose))}>
             <table className="table table-light table-hover">
             <thead></thead>
             <tbody>

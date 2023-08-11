@@ -18,6 +18,8 @@ const GetEmpleadosModal = () =>{
         setIsEdit,
         setEmpleado,
         eliminarEmpleado,
+        guardado, 
+        editado,
         eliminado,
         mostrarConfirmacion,
         confirmEliminarEmpleado,
@@ -25,7 +27,6 @@ const GetEmpleadosModal = () =>{
         isLoading,
         setIsLoading,
         isEdit,
-        departamentos,
         fechaFormateadaHoy,
         cambiosEmpleados, 
         setCambiosEmpleados
@@ -82,11 +83,11 @@ const GetEmpleadosModal = () =>{
 
     const abrirModalEmpleado = () => {
         setModalEmpleadoAbierto(true);
-      };
+    };
 
       const cerrarModalEmpleado = () => {
         setModalEmpleadoAbierto(false);
-      };
+    };
 
       const generarReporte = () => {
         // l para horizontal y p para vertical
@@ -139,9 +140,11 @@ const GetEmpleadosModal = () =>{
 
    return(
    <>
-   <Modal isOpen={mostrarConfirmacion} confirmEliminar={confirmEliminarEmpleado} cancelEliminar={cancelEliminar} isEdit={isEdit} departamentos={departamentos} />
+   <Modal isOpen={mostrarConfirmacion} confirmEliminar={confirmEliminarEmpleado} cancelEliminar={cancelEliminar} isEdit={isEdit} />
    <ModalEmpleado isOpen={modalEmpleadoAbierto} onClose={cerrarModalEmpleado} empleadoModal={empleadoModal}  />
    <div className="container">
+   {guardado && <Alerts mensaje="Empleado guardado exitosamente ✅" tipo="success"/>}
+   {editado && <Alerts mensaje="Empleado eliminado exitosamente 🖍️" tipo="warning"/>}
    {eliminado && <Alerts mensaje="Empleado eliminado exitosamente ❌" tipo="danger"/>}
       <h1 className="display-4">Empleados Modal</h1>
       <hr/>
