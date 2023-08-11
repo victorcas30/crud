@@ -1,0 +1,215 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #efefef;
+    margin: 0;
+}
+
+header {
+    background-color: #364552;
+    color: white;
+    padding: 3rem 2rem;
+}
+
+header h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+section {
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+section:hover {
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+}
+
+.h5Name:hover {
+    color:royalblue
+
+}
+
+footer {
+    background-color: #222;
+    padding: 3rem;
+    color: white;
+}
+
+footer section {
+    float: right;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    transition: color 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: cornflowerblue;
+}
+
+.contenedorTarjeta{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.contenedorTarjetaMarvel{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+
+.contenedorCheck{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: left;
+    justify-items: left;
+}
+
+.checkbox-img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: 30px;
+    margin-right: 5px; /* Ajusta el espaciado entre la imagen y el texto */
+    
+  }
+
+.h3Name {
+    font-size: 1.5rem;
+}
+
+*{
+    transition: all 0.6s;
+}
+
+#contenedorError{
+    font-family: 'Lato', sans-serif;
+    color: #888;
+    margin: 0;
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+.error{
+	  display: table-cell;
+	  vertical-align: middle;
+}
+
+.error h1{
+	  font-size: 50px;
+	  display: inline-block;
+	  padding-right: 12px;
+	  animation: type .5s alternate infinite;
+}
+
+@keyframes type{
+	  from{box-shadow: inset -3px 0px 0px #888;}
+	  to{box-shadow: inset -3px 0px 0px transparent;}
+}
+
+.isActive{
+    background-color: rgba(255, 255, 255, 0.2);
+    color: lightgrey !important;
+    border-radius: 5px;
+}
+
+.loader {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin:15px auto;
+    position: relative;
+    background: #FFF;
+    box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+    box-sizing: border-box;
+    animation: shadowPulse 2s linear infinite;
+}
+  
+@keyframes shadowPulse {
+    33% {
+      background: #FFF;
+      box-shadow: -24px 0 #2C3E50, 24px 0 #FFF;
+    }
+    66% {
+      background: #2C3E50;
+      box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+    }
+    100% {
+      background: #FFF;
+      box-shadow: -24px 0 #FFF, 24px 0 #2C3E50;
+    }
+}
+
+.carruselSize{
+    max-width: 500px;
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+    
+}
+
+.cajaCarrusel {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.containerrutas{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    column-gap: 25px;
+}
+
+.columna1 {
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.columna2 {
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+  }
+/*
+.tableContainer {
+    width: auto;
+    margin: 0 auto; /* Para centrar la tabla horizontalmente, si lo deseas 
+  }
+  
+  .tableContainer table {
+    width: auto;
+    table-layout: auto;
+  }
+*/
+.navLink{
+    text-decoration: none;
+    color: gray;
+}
+
+.activeNavLink{
+    color: darkslategray;
+    font-weight: bold;
+}
