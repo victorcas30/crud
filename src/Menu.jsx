@@ -12,7 +12,10 @@ const Menu = () =>{
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <NavLink className={({isActive}) => isActive ? "nav-link isActive" : "nav-link"} to="/crud">Empleados Modal</NavLink>
+                    <NavLink className={({isActive}) => isActive ? "nav-link active isActive" : "nav-link active"} aria-current="page" to="/crud">Home</NavLink>
+                    </li>
+                    <li className="nav-item">
+                    <NavLink className={({isActive}) => isActive ? "nav-link isActive" : "nav-link"} to="/getempleadosmodal">Empleados Modal</NavLink>
                     </li>
                 </ul>
                 </div>
