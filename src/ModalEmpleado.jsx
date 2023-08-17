@@ -14,14 +14,13 @@ const ModalEmpleado = ({ isOpen, onClose, empleadoModal }) => {
 
   useEffect(() => {
     if (isEdit && empleadoModal) {
-      const {id, nombre, apellido, dui, fechanacimiento, iddepartamento } = empleadoModal;
+      const {id, nombre, apellido, dui, fechanacimiento } = empleadoModal;
       const fechaString = fechanacimiento.split('T')[0];
       console.table(empleadoModal)
       setValue("nombre", nombre);
       setValue("apellido", apellido);
       setValue("dui", dui);
       setValue("fechanacimiento", fechaString);
-      setValue("iddepartamento", iddepartamento);
       setIdEmpleado(id);
     } else {
       reset();

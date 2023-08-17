@@ -35,6 +35,7 @@ const useEmpleados = () => {
         const copyEmpleadoEdit = {...data};
         copyEmpleadoEdit.id = idEmpleado;
         setEmpleado([copyEmpleadoEdit]);
+        console.log(copyEmpleadoEdit);
         editarEmpleadoFetch(copyEmpleadoEdit).then(respuesta=>{
             console.log(JSON.stringify(respuesta));
         });
