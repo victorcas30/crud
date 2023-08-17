@@ -16,7 +16,6 @@ const ModalEmpleado = ({ isOpen, onClose, empleadoModal }) => {
     if (isEdit && empleadoModal) {
       const {id, nombre, apellido, dui, fechanacimiento } = empleadoModal;
       const fechaString = fechanacimiento.split('T')[0];
-      console.table(empleadoModal)
       setValue("nombre", nombre);
       setValue("apellido", apellido);
       setValue("dui", dui);

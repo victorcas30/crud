@@ -17,20 +17,21 @@ const useEmpleados = () => {
     const saveEmpleado = (data,reset,onClose) => {
         setIsLoading(true);
         const copyEmpleado = {...data};
-        console.log(copyEmpleado)
         setEmpleado([copyEmpleado]);
         guardarEmpleado(copyEmpleado).then(res=>{
             console.log(JSON.stringify(res));
             setIsLoading(false);
+            if (res.success) {
+                setGuardado(true); 
+                setTimeout(() => {
+                    setGuardado(false);
+                }, 5000);
+            }
         }).catch(error => {
             console.error(error);
             setIsLoading(false);
         });
         setCambiosEmpleados(true);
-        setGuardado(true);
-        setTimeout(() => {
-            setGuardado(false);
-        }, 5000);
         reset();
         onClose();
     }
@@ -40,10 +41,15 @@ const useEmpleados = () => {
         const copyEmpleadoEdit = {...data};
         copyEmpleadoEdit.id = idEmpleado;
         setEmpleado([copyEmpleadoEdit]);
-        console.log(copyEmpleadoEdit);
-        editarEmpleadoFetch(copyEmpleadoEdit).then(respuesta=>{
-            console.log(JSON.stringify(respuesta));
+        editarEmpleadoFetch(copyEmpleadoEdit).then(res=>{
+            console.log(JSON.stringify(res));
             setIsLoading(false);
+            if (res.success) {
+                setEditado(true);
+                setTimeout(() => {
+                    setEditado(false);
+                }, 5000);
+            }
         }).catch(error => {
             console.error(error);
             setIsLoading(false);
@@ -51,10 +57,6 @@ const useEmpleados = () => {
         setCambiosEmpleados(true);
         setIsEdit(false);
         onClose();
-        setEditado(true);
-        setTimeout(() => {
-            setEditado(false);
-        }, 5000);
         reset();
      }
 
@@ -72,9 +74,15 @@ const useEmpleados = () => {
     const confirmEliminarEmpleado = () =>{
         setIsLoading(true);
         const copyEmpleadoDelete = {id: idEmpleadoEliminar};
-        eliminarEmpleadoFetch(copyEmpleadoDelete).then(respuesta=>{
-            console.log(JSON.stringify(respuesta));
+        eliminarEmpleadoFetch(copyEmpleadoDelete).then(res=>{
+            console.log(JSON.stringify(res));
             setIsLoading(false);
+            if (res.success) {
+                setEliminado(true);
+                setTimeout(() => {
+                    setEliminado(false);
+                }, 5000);
+            }
         }).catch(error => {
             console.error(error);
             setIsLoading(false);
@@ -82,10 +90,6 @@ const useEmpleados = () => {
         setCambiosEmpleados(true);
         setIdEmpleadoEliminar(0);
         setMostrarConfirmacion(false);
-        setEliminado(true);
-        setTimeout(() => {
-            setEliminado(false);
-        }, 5000);
      }
 
      const cancelEliminar = () => {

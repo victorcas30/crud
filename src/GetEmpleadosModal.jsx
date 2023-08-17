@@ -74,8 +74,6 @@ const GetEmpleadosModal = () =>{
         const empleadoEditar = empleados.find(empleado => empleado.id === id);
         setEmpleado({});
         setEmpleadoModal(empleadoEditar);
-        console.log(empleadoModal);
-        //console.log(empleadoEditar);
     }
 
     const buscar = e => {
@@ -83,7 +81,6 @@ const GetEmpleadosModal = () =>{
             setIsLoading(true);
             getEmpleadosConcat(inputBuscarRef.current.value).then(todo => {
                 const {empleados:empleadostodos} = todo;
-                console.table(empleadostodos);
                 setEmpleados(empleadostodos);
                 setIsLoading(false);
             })          
@@ -114,7 +111,6 @@ const GetEmpleadosModal = () =>{
                 fechaNacFormt,
             }
             num++;
-            console.log(arrayEmpleados);
             const dataArrayEmpleados = Object.values(arrayEmpleados);
             return dataArrayEmpleados;
         });
