@@ -42,8 +42,13 @@ const GetEmpleadosModal = () =>{
             getEmpleados().then(empleados=>{
                 const {empleados:empleadosbd} = empleados;
                 setEmpleados(empleadosbd);
+            }).catch(error => {
+                console.error(error);
             })
-            setIsLoading(false);
+            .finally(() => {
+                setIsLoading(false);
+            });
+
         }
     },[]);
 
@@ -53,8 +58,12 @@ const GetEmpleadosModal = () =>{
             getEmpleados().then(empleados=>{
                 const {empleados:empleadosbd} = empleados;
                 setEmpleados(empleadosbd);
+            }).catch(error => {
+                console.error(error);
             })
-            setIsLoading(false);
+            .finally(() => {
+                setIsLoading(false);
+            });
             setCambiosEmpleados(false);
         }
     },[cambiosEmpleados]);
@@ -148,7 +157,6 @@ const GetEmpleadosModal = () =>{
    {eliminado && <Alerts mensaje="Empleado eliminado exitosamente ❌" tipo="danger"/>}
       <h1 className="display-4">Empleados Modal</h1>
       <hr/>
-      {isLoading && <Loading/> }
       <div style={{ display: "flex", alignItems: "center" }}>
       <input type="text" className="form-control w-50" placeholder="Buscar" ref={inputBuscarRef} onKeyUp={e => buscar(e)} />
       <div style={{ marginLeft: "auto" }}>
@@ -156,6 +164,7 @@ const GetEmpleadosModal = () =>{
       <button className="btn btn-info ms-2" style={{ marginLeft: "auto" }} onClick={abrirModalEmpleado}>Agregar</button>
       </div>
       </div>
+      {isLoading && <Loading/> }
       <br />
 
    <table className="table table-secondary table-hover">
