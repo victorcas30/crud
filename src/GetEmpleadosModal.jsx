@@ -1,5 +1,5 @@
 import { useState,useEffect,useContext, useRef } from "react";
-import { getEmpleados,guardarEmpleado,getEmpleadosConcat } from "./leerApis";
+import { getEmpleados,getEmpleadosConBusqueda } from "./leerApis";
 import empleadosContext from "./empleadosContext";
 import Modal from "./Modal";
 import Alerts from "./Alerts";
@@ -79,7 +79,7 @@ const GetEmpleadosModal = () =>{
     const buscar = e => {
         if(e.keyCode === 13){
             setIsLoading(true);
-            getEmpleadosConcat(inputBuscarRef.current.value).then(todo => {
+            getEmpleadosConBusqueda(inputBuscarRef.current.value).then(todo => {
                 const {empleados:empleadostodos} = todo;
                 setEmpleados(empleadostodos);
                 setIsLoading(false);
