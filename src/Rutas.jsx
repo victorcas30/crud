@@ -11,8 +11,8 @@ const Rutas = () => {
         <BrowserRouter>
         <Menu/>
         <Routes>
-            <Route path="/crud" element={<Home/>} />
-            <Route path="/getempleadosmodal" element={<GetEmpleadosModal/>} />
+            <Route path="/home" element={<Home/>} />
+            <Route path="/crud" element={<GetEmpleadosModal/>} />
             <Route path="/loading" element={<Loading/>} />
             <Route path="*" element={<Error404/>} />
         </Routes>
