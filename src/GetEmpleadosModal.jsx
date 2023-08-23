@@ -151,19 +151,21 @@ const GetEmpleadosModal = () =>{
    {guardado && <Alerts mensaje="Empleado guardado exitosamente ✅" tipo="success"/>}
    {editado && <Alerts mensaje="Empleado eliminado exitosamente 🖍️" tipo="warning"/>}
    {eliminado && <Alerts mensaje="Empleado eliminado exitosamente ❌" tipo="danger"/>}
-      <h1 className="display-4">Empleados Modal</h1>
+      <h1 className="display-4 mt-4">Empleados Modal</h1>
       <hr/>
       <div style={{ display: "flex", alignItems: "center" }}>
       <input type="text" className="form-control w-50" placeholder="Buscar" ref={inputBuscarRef} onKeyUp={e => buscar(e)} />
       <div style={{ marginLeft: "auto" }}>
+      <div className="btn-group" role="group">
       <button className="btn btn-danger" style={{ marginLeft: "auto" }} onClick={generarReporte}>PDF</button>
       <button className="btn btn-info ms-2" style={{ marginLeft: "auto" }} onClick={abrirModalEmpleado}>Agregar</button>
       </div>
       </div>
+      </div>
       {isLoading && <Loading/> }
       <br />
-
-   <table className="table table-secondary table-hover">
+    <div className="table-responsive">
+    <table className="table table-secondary table-hover">
             <thead>
                 <tr>
                     <th>#</th>
@@ -185,14 +187,17 @@ const GetEmpleadosModal = () =>{
                         <td>{dui}</td>
                         <td>{fechaFormateada(fechanacimiento)}</td>
                         <td> 
+                        <div className="btn-group" role="group">
                             <button className="btn btn-warning" onClick={() => editarEmpl(id)} >Editar</button>
                             <button className="btn btn-danger ms-4" onClick={() => eliminarEmpleado(id)}>Eliminar</button> 
+                        </div>
                         </td>
                     </tr>
                 })
                }
             </tbody>
         </table>
+        </div>
     </div>
    </>
    )
