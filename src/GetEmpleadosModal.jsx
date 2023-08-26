@@ -150,7 +150,7 @@ const GetEmpleadosModal = () =>{
    <ModalEmpleado className="custom-modal" isOpen={modalEmpleadoAbierto} onClose={cerrarModalEmpleado} empleadoModal={empleadoModal}  />
    <div className="container">
    {guardado && <Alerts mensaje="Empleado guardado exitosamente ✅" tipo="success"/>}
-   {editado && <Alerts mensaje="Empleado eliminado exitosamente 🖍️" tipo="warning"/>}
+   {editado && <Alerts mensaje="Empleado editado exitosamente 🖍️" tipo="warning"/>}
    {eliminado && <Alerts mensaje="Empleado eliminado exitosamente ❌" tipo="danger"/>}
       <h1 className="display-4 mt-4">Empleados Modal</h1>
       <hr/>
