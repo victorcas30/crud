@@ -46,4 +46,8 @@
   .modal-button:hover {
     background-color: #ddd;
   }
+
+  .custom-modal {
+    z-index: 1000; /* Establece un valor más alto según sea necesario */
+  }
   

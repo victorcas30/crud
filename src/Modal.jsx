@@ -4,7 +4,7 @@ const Modal = ({ isOpen, onClose, confirmEliminar, cancelEliminar }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay custom-modal">
       <div className="modal-content">
         <h3>¿Desea eliminar este Usuario definitivamente?</h3>
         <div className="modal-buttons">

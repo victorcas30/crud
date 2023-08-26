@@ -9,6 +9,7 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 
+
 const GetEmpleadosModal = () =>{
     const data = useContext(empleadosContext);
     const {
@@ -145,8 +146,8 @@ const GetEmpleadosModal = () =>{
 
    return(
    <>
-   <Modal isOpen={mostrarConfirmacion} confirmEliminar={confirmEliminarEmpleado} cancelEliminar={cancelEliminar} isEdit={isEdit} />
-   <ModalEmpleado isOpen={modalEmpleadoAbierto} onClose={cerrarModalEmpleado} empleadoModal={empleadoModal}  />
+   <Modal className="custom-modal" isOpen={mostrarConfirmacion} confirmEliminar={confirmEliminarEmpleado} cancelEliminar={cancelEliminar} isEdit={isEdit} />
+   <ModalEmpleado className="custom-modal" isOpen={modalEmpleadoAbierto} onClose={cerrarModalEmpleado} empleadoModal={empleadoModal}  />
    <div className="container">
    {guardado && <Alerts mensaje="Empleado guardado exitosamente ✅" tipo="success"/>}
    {editado && <Alerts mensaje="Empleado eliminado exitosamente 🖍️" tipo="warning"/>}

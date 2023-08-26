@@ -32,7 +32,7 @@ const ModalEmpleado = ({ isOpen, onClose, empleadoModal }) => {
   };
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay custom-modal">
       <div className="modal-content">
       {isEdit ? <h3>Edit Empleado</h3> : <h3>Set Empleado</h3> }
         <div>
