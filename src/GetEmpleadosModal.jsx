@@ -154,6 +154,8 @@ const GetEmpleadosModal = () =>{
    {eliminado && <Alerts mensaje="Empleado eliminado exitosamente ❌" tipo="danger"/>}
       <h1 className="display-4 mt-4">Empleados Modal</h1>
       <hr/>
+        <input type="file" capture="camera" accept="image/*" id="camera" />
+        <input type="file" accept="image/*" id="gallery" />
       <div style={{ display: "flex", alignItems: "center" }}>
       <input type="text" className="form-control w-50" placeholder="Buscar" ref={inputBuscarRef} onKeyUp={e => buscar(e)} />
       <div style={{ marginLeft: "auto" }}>
