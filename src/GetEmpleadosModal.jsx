@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import Camera from 'react-camera';
 import Dropzone from 'react-dropzone';
 
-const CameraComponent = () => {
-  const [cameraType, setCameraType] = useState('front');
+const CameraWithDropzone = () => {
   const [capturedImage, setCapturedImage] = useState(null);
 
   const handleCapture = (imageSrc) => {
-    // Aquí puedes manejar la imagen capturada desde la cámara
+    // Maneja la imagen capturada aquí
     setCapturedImage(imageSrc);
   };
 
   const handleDrop = (acceptedFiles) => {
-    // Aquí puedes manejar la imagen seleccionada desde el carrete
+    // Maneja la imagen seleccionada desde el carrete aquí
     const reader = new FileReader();
     reader.onload = () => {
       setCapturedImage(reader.result);
@@ -22,21 +21,10 @@ const CameraComponent = () => {
 
   return (
     <div>
-      <h1>Manipulación de la Cámara</h1>
-      <Camera
-        front
-        capture
-        isImageMirror={false}
-        imageType={cameraType}
-        onTakePhoto={handleCapture}
-      />
-      <div>
-        <button onClick={() => setCameraType('front')}>Abrir cámara frontal</button>
-        <button onClick={() => setCameraType('back')}>Abrir cámara trasera</button>
-      </div>
-
+      <h1>Abrir la cámara con carrete</h1>
+      <Camera front capture isImageMirror={false} onTakePhoto={handleCapture} />
       <Dropzone onDrop={handleDrop}>
-        {({getRootProps, getInputProps}) => (
+        {({ getRootProps, getInputProps }) => (
           <div {...getRootProps()} style={dropzoneStyle}>
             <input {...getInputProps()} />
             <p>Arrastra y suelta aquí para cargar desde el carrete</p>
@@ -47,7 +35,7 @@ const CameraComponent = () => {
       {capturedImage && (
         <div>
           <h2>Imagen Capturada</h2>
-          <img src={capturedImage} alt="Captured" style={imageStyle} />
+          <img src={capturedImage} alt="Capturada" style={imageStyle} />
         </div>
       )}
     </div>
@@ -69,4 +57,4 @@ const imageStyle = {
   marginTop: '20px',
 };
 
-export default CameraComponent;
+export default CameraWithDropzone;
