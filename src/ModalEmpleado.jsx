@@ -35,8 +35,8 @@ const ModalEmpleado = ({ isOpen, onClose, empleadoModal }) => {
     <div className="modal-overlay custom-modal">
       <div className="modal-content">
 
-        <input type="file" capture="camera" accept="image/*" id="camera">
-<input type="file" accept="image/*" id="gallery">
+        <input type="file" capture="camera" accept="image/*" id="camera" />
+        <input type="file" accept="image/*" id="gallery" />
 
       {isEdit ? <h3>Edit Empleado</h3> : <h3>Set Empleado</h3> }
         <div>
