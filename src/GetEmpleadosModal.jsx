@@ -157,6 +157,8 @@ const GetEmpleadosModal = () =>{
         <input type="file" capture="camera" accept="image/*" id="camera" />
         <input type="file" accept="image/*" id="gallery" />
        <input type="file" capture="camera" accept="image/*" multiple id="camera-gallery" />
+       <input type="file" capture="camera" accept="image/*" multiple id="camera-gallery" />
+    <button type="button" onclick="showGallery()">Abrir galería</button>
 
       <div style={{ display: "flex", alignItems: "center" }}>
       <input type="text" className="form-control w-50" placeholder="Buscar" ref={inputBuscarRef} onKeyUp={e => buscar(e)} />
