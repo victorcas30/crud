@@ -1,60 +1,46 @@
-import React, { useState } from 'react';
-import Camera from 'react-camera';
-import Dropzone from 'react-dropzone';
+import { Camera } from 'react-native';
 
-const CameraWithDropzone = () => {
-  const [capturedImage, setCapturedImage] = useState(null);
+const App = () => {
+  const [cameraOpen, setCameraOpen] = useState(false);
+  const [photos, setPhotos] = useState([]);
 
-  const handleCapture = (imageSrc) => {
-    // Maneja la imagen capturada aquí
-    setCapturedImage(imageSrc);
+  const openCamera = () => {
+    cameraOpen ? setCameraOpen(false) : setCameraOpen(true);
   };
 
-  const handleDrop = (acceptedFiles) => {
-    // Maneja la imagen seleccionada desde el carrete aquí
-    const reader = new FileReader();
-    reader.onload = () => {
-      setCapturedImage(reader.result);
-    };
-    reader.readAsDataURL(acceptedFiles[0]);
+  const openCameraWithPreview = () => {
+    cameraOpen ? setCameraOpen(false) : setCameraOpen(true);
+    camera.open({
+      showPreview: true,
+    });
+  };
+
+  const openPhotos = () => {
+    setPhotos(Camera.getPhotos());
   };
 
   return (
     <div>
-      <h1>Abrir la cámara con carrete</h1>
-      <Camera front capture isImageMirror={false} onTakePhoto={handleCapture} />
-      <Dropzone onDrop={handleDrop}>
-        {({ getRootProps, getInputProps }) => (
-          <div {...getRootProps()} style={dropzoneStyle}>
-            <input {...getInputProps()} />
-            <p>Arrastra y suelta aquí para cargar desde el carrete</p>
-          </div>
-        )}
-      </Dropzone>
-
-      {capturedImage && (
-        <div>
-          <h2>Imagen Capturada</h2>
-          <img src={capturedImage} alt="Capturada" style={imageStyle} />
-        </div>
+      <button onClick={openCamera}>Abrir cámara sin carrete</button>
+      <button onClick={openCameraWithPreview}>Abrir cámara con carrete</button>
+      <button onClick={openPhotos}>Abrir fotos</button>
+      {cameraOpen && (
+        <Camera
+          ref={camera}
+          onTakePicture={(data) => {
+            setPhotos([...photos, { data }]);
+          }}
+        />
+      )}
+      {photos.length > 0 && (
+        <ul>
+          {photos.map((photo) => (
+            <li key={photo.id}>
+              <img src={photo.uri} />
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
 };
-
-const dropzoneStyle = {
-  border: '2px dashed #cccccc',
-  borderRadius: '4px',
-  padding: '20px',
-  textAlign: 'center',
-  cursor: 'pointer',
-  marginTop: '20px',
-};
-
-const imageStyle = {
-  maxWidth: '100%',
-  maxHeight: '400px',
-  marginTop: '20px',
-};
-
-export default CameraWithDropzone;
